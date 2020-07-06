@@ -2,11 +2,13 @@ package com.sonlcr1.ex57recyclerview2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,7 +21,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Item> items = new ArrayList<>();
 
     MyAdapter adapter;
+    RecyclerAdapter recyclerAdapter;
     RecyclerView recyclerView;
+    ViewPager viewPager;
+    FragmentAdapter fragmentAdapter;
 
 
     @Override
@@ -34,14 +39,18 @@ public class MainActivity extends AppCompatActivity {
         items.add( new Item("우솝","해적단저격수",R.drawable.bg_one04,"https://i.pinimg.com/originals/be/d7/e9/bed7e9990a800bb0a886e5539ae1cdeb.png") );
 
         adapter = new MyAdapter(this,items );
-        recyclerView = findViewById(R.id.recycler);
-        recyclerView.setAdapter(adapter);
+        //recyclerView = findViewById(R.id.recycler);
+        //recyclerView.setAdapter(adapter);
 
         //리사이클러뷰 가로방향으로 한페이지씩 넘기기
-          LinearLayoutManager mManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-          recyclerView.setLayoutManager(mManager);
-          SnapHelper snapHelper = new PagerSnapHelper();
-          snapHelper.attachToRecyclerView(recyclerView);
+//          LinearLayoutManager mManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+//          recyclerView.setLayoutManager(mManager);
+//          SnapHelper snapHelper = new PagerSnapHelper();
+//          snapHelper.attachToRecyclerView(recyclerView);
+
+        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
+        viewPager = findViewById(R.id.viewpager);
+        viewPager.setAdapter(fragmentAdapter);
 
 
 

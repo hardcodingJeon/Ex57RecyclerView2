@@ -9,11 +9,17 @@
     tools:context=".MainActivity">
 
     <!-- RecyclerView할때 layoutManager 속성 빼먹지 말것 -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+
+<!--        />-->
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         />
 
 </RelativeLayout>
